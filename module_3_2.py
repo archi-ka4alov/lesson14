@@ -1,8 +1,7 @@
 def send_email (message, recipient, sender = "university.help@gmail.com"):
     if '@' in recipient and sender:
-        if recipient[(len(recipient) - 4):(len(recipient))] and sender[(len(sender) - 4):(len(sender))] == '.com' or \
-            recipient[(len(recipient) - 3):(len(recipient))] and sender[(len(sender) - 3):(len(sender))] == '.ru' or \
-            recipient[(len(recipient) - 4):(len(recipient))] and sender[(len(sender) - 4):(len(sender))] == '.net':
+        if (recipient.endswith('.com') or recipient.endswith('.ru') or recipient.endswith('.net')) and \
+                (sender.endswith('.com') or sender.endswith('.ru')  or sender.endswith('.net')):
             if recipient == sender:
                 print("Нельзя отправить письмо самому себе!")
             elif sender == "university.help@gmail.com":
